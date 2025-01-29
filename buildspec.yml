@@ -27,6 +27,8 @@ phases:
       - echo 'export PATH=$PWD/:$PATH' >> $HOME/.bashrc
       - echo `kubectl version --client`
       - python -m pip install --upgrade --force pip
+      - curl -fsSL https://apt.corretto.aws/corretto.key > /etc/apt/trusted.gpg.d/corretto.asc
+      - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
       - apt-get update 
       - apt-get -y install jq  
       - pip install --upgrade awscli
